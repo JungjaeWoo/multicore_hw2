@@ -47,7 +47,7 @@ double get_timer() {
 
 }
 
-#define MATRIX(n, i, j)  *(matrix[n] +(matrix_size[n][1] * i + j))
+#define MATRIX(n, i, j)	*(matrix[n] +(matrix_size[n][1] * i + j))
 #define FLOATLEN	20
 
 int main(void)
@@ -121,6 +121,8 @@ int main(void)
 		}
 	}
 	printf ("time : %.6lf\n", get_timer());
+	free(matrix[0]);
+	free(matrix[1]);
 	FILE *output = fopen("sepe", "w");
 	for(i = 0; i < matrix_size[0][0]; i++)
 	{
@@ -131,5 +133,6 @@ int main(void)
 		fprintf(output, "\n");
 	}
 	fclose(output);
+	free(matrix[2]);
 	return 0;
 }
