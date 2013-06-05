@@ -47,7 +47,7 @@ double get_timer() {
 
 }
 
-#define MATRIX(n, i, j)  *(matrix[n] +(matrix_size[n][1] * i + j))
+#define MATRIX(n, i, j)	*(matrix[n] +(matrix_size[n][1] * i + j))
 #define FLOATLEN	20
 
 int main(void)
@@ -125,5 +125,8 @@ int main(void)
 	}
 	printf ("time : %.6lf\n", get_timer());
 	fclose(output);
+	free(matrix[0]);
+	free(matrix[1]);
+	free(matrix[2]);
 	return 0;
 }
